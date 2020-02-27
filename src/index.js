@@ -1,4 +1,5 @@
-import './style';
-import App from './components/app';
+import 'normalize.css'
+import './style'
+import App from './components/app'
 
-export default App;
+export default App
