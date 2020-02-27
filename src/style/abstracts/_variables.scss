@@ -1,0 +1,28 @@
+$base-colours: (
+  'primary': #a9b7c0,
+  'secondary': #c7d8c6,
+  'tertiary': #efd9c1,
+  'grey': #cccbc6
+);
+
+$colours: ();
+
+@function create-colour-map($name, $color) {
+  @return (
+    #{$name}: (
+      base: $colour,
+      dark: darken($colour, 10%),
+      darker: darken($colour, 30%),
+      darkest: darken($colour, 60%),
+      light: lighten($colour, 10%),
+      lighter: lighten($colour, 30%),
+      lightest: lighten($colour, 60%)
+    )
+  )
+}
+
+@each $name, $colour in $colour {
+  $colours: map-merge($colours, create-colour-map($name, $colour))
+}
+
+@debug $colours;
